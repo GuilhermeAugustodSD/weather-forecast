@@ -31,9 +31,8 @@ export default function MainBox({search}) {
         <img src={Pin} alt="Ícone de Pin" />
         {data?.location?.name}, {data?.location?.region}
       </div>
-
       <div className={styles.temperatura}>
-        <span className={styles.numero}>{data?.current?.temp_c}</span>
+        <span className={styles.numero}>{data?.current?.temp_c && Math.trunc(data?.current?.temp_c)}</span>
         <span className={styles.medicao}>°C</span>
       </div>
 
