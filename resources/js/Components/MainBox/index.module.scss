@@ -1,0 +1,64 @@
+.boxInfo {
+  background: url(../../assets/bg.png) no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 480px;
+  position: relative;
+  padding: 12px;
+
+  display: grid;
+  grid-template-rows: 20px 1fr 60px;
+
+  &::before {
+    content: url(../../assets/weather.png);
+    position: absolute;
+    top: -56px;
+    left: -56px;
+  }
+
+  .city {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 4px;
+    height: max-content;
+
+    text-align: right;
+    padding: 20px;
+    color: #C2BFF4;
+
+    img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+  }
+
+  .temperatura {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 60px;
+
+    .numero {
+      font-size: 88px;
+      font-weight: 700;
+      color: #FFF;
+      line-height: 1;
+    }
+
+    .medicao {
+      font-size: 24px;
+      font-weight: 700;
+      color: #DAD8F7;
+      margin-top: 17px;
+      line-height: 1;
+    }
+  }
+
+  .containerConditions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+}

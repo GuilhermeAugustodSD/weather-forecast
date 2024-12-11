@@ -1,0 +1,22 @@
+.backgroud {
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  // padding: 20px;
+  background: url(../../assets/bg-figma.png) no-repeat;
+  background-size: cover;
+  background-position: bottom;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 480px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+}

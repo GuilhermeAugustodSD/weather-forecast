@@ -1,0 +1,40 @@
+.boxSecondInfo {
+  width: 100%;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+  background-color: #6660C899;
+  border-radius: 6px;
+
+  img {
+    width: 32px;
+    height: 32px;
+    opacity: .4;
+  }
+
+
+  .words {
+    display: flex;
+    flex-direction: column;
+    color: #E7E6FB;
+
+    .name {
+      font-size: 12px;
+    }
+
+    .value {
+
+      font-size: 18px;
+      font-weight: 700;
+
+      small {
+        font-size: 14px;
+        font-weight: 700;
+        margin-left: 4px;
+      }
+    }
+
+  }
+
+}
