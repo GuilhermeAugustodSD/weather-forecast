@@ -9,6 +9,10 @@
   display: grid;
   grid-template-rows: 20px 1fr 60px;
 
+  @media (max-width: 500px) {
+    height: 300px;
+  }
+
   &::before {
     content: url(../../assets/weather.png);
     position: absolute;
@@ -27,6 +31,10 @@
     padding: 20px;
     color: #C2BFF4;
 
+    @media (max-width: 500px) {
+      padding: unset;
+    }
+
     img {
       width: 20px;
       height: 20px;
@@ -40,11 +48,19 @@
     gap: 4px;
     margin-top: 60px;
 
+    @media (max-width: 500px) {
+      margin-top: 30px;
+    }
+
     .numero {
       font-size: 88px;
       font-weight: 700;
       color: #FFF;
       line-height: 1;
+
+      @media (max-width: 500px) {
+        font-size: 68px;
+      }
     }
 
     .medicao {
