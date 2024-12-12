@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import { IoMdSearch } from "react-icons/io";
 import { autoCompleteRequisition } from '@/api/weather';
@@ -9,11 +9,13 @@ export default function SearchBox({ changeValue }) {
   const [listCities, setListCities] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const changeInputValue = (event,value) => {
+  const changeInputValue = useCallback((event,value) => {
     event.preventDefault()
-    changeValue(value)
-    setInputValue('')
-  }
+    if (value) {
+      changeValue(value)
+      setInputValue('')
+    }
+  },[])
 
   useEffect(() => {
     if (inputValue != '') {
@@ -31,7 +33,6 @@ export default function SearchBox({ changeValue }) {
     } else {
       setListCities([])
     }
-
   }, [inputValue])
 
   return (

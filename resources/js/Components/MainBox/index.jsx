@@ -2,7 +2,7 @@ import styles from './index.module.scss';
 import Pin from '@/assets/image-4.png';
 import BoxConditions from '../BoxConditions';
 import { changeToAcronym } from '@/utils/location';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -12,12 +12,12 @@ export default function MainBox({ search }) {
   const [weatherInfo, setWeatherInfo] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const requisitionFetchData = async (search) => {
+  const requisitionFetchData = useCallback (async (search) => {
     setLoading(true)
     const data = await fetchDataWeather(search)
     setWeatherInfo(data)
     setLoading(false)
-  }
+  },[])
 
   useEffect(() => {
     requisitionFetchData(search)
@@ -33,15 +33,15 @@ export default function MainBox({ search }) {
           `${weatherInfo?.location?.name}, ${changeToAcronym(weatherInfo?.location?.region)}`
         )}
       </div>
-      <div className={styles.temperatura}>
+      <div className={styles.temperature}>
         {loading ? (
           <Skeleton width={100} height={100} baseColor="#b995db61"/>
         ) : (
           <>
-            <span className={styles.numero}>
+            <span className={styles.number}>
               {weatherInfo?.current?.temp_c && Math.trunc(weatherInfo?.current?.temp_c)}
             </span>
-            <span className={styles.medicao}>°C</span>
+            <span className={styles.measurement}>°C</span>
           </>
         )}
       </div>
