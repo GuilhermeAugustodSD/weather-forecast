@@ -15,6 +15,6 @@ use App\Http\Controllers\WeatherController;
 */
 
 Route::controller(WeatherController::class)->prefix("/weather")->group(function(){
-  Route::get('/complete/{search}', 'getAutoCompleteLocation')->name('weather.getAutoCompleteLocation');
+  Route::get('/city/autocomplete/{search}', 'getAutoCompleteLocation')->name('weather.getAutoCompleteLocation');
   Route::get('/{search}', 'getWeather')->name('weather.getWeather');
 });
