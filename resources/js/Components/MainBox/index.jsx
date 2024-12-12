@@ -1,35 +1,26 @@
 import styles from './index.module.scss';
 import Pin from '@/assets/image-4.png';
 import BoxConditions from '../BoxConditions';
+import { changeToAcronym } from '@/utils/location';
 import { useState, useEffect } from 'react';
+
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { regions } from '@/constants/regions';
+import { fetchDataWeather } from '@/api/weather';
 
 export default function MainBox({ search }) {
-  const [data, setData] = useState({});
+  const [weatherInfo, setWeatherInfo] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const handleSave = async () => {
+  const requisitionFetchData = async (search) => {
     setLoading(true)
-    fetch(route(`weather.getWeather`, { search: search }), {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch((error) => console.error('Error:', error));
-  };
-
-  const changeToAcronym = (region) => {
-    if (regions[region]) return regions[region];
-    return region;
-  };
+    const data = await fetchDataWeather(search)
+    setWeatherInfo(data)
+    setLoading(false)
+  }
 
   useEffect(() => {
-    handleSave();
+    requisitionFetchData(search)
   }, [search]);
 
   return (
@@ -39,7 +30,7 @@ export default function MainBox({ search }) {
         {loading ? (
           <Skeleton width={100} baseColor="#b995db61"/>
         ) : (
-          `${data?.location?.name}, ${changeToAcronym(data?.location?.region)}`
+          `${weatherInfo?.location?.name}, ${changeToAcronym(weatherInfo?.location?.region)}`
         )}
       </div>
       <div className={styles.temperatura}>
@@ -48,7 +39,7 @@ export default function MainBox({ search }) {
         ) : (
           <>
             <span className={styles.numero}>
-              {data?.current?.temp_c && Math.trunc(data?.current?.temp_c)}
+              {weatherInfo?.current?.temp_c && Math.trunc(weatherInfo?.current?.temp_c)}
             </span>
             <span className={styles.medicao}>°C</span>
           </>
@@ -64,9 +55,9 @@ export default function MainBox({ search }) {
           </>
         ) : (
           <>
-            <BoxConditions name="Vento" value={data?.current?.wind_kph} />
-            <BoxConditions name="Umidade" value={data?.current?.humidity} />
-            <BoxConditions name="Chuva" value={data?.current?.cloud} />
+            <BoxConditions name="Vento" value={weatherInfo?.current?.wind_kph} />
+            <BoxConditions name="Umidade" value={weatherInfo?.current?.humidity} />
+            <BoxConditions name="Chuva" value={weatherInfo?.current?.cloud} />
           </>
         )}
       </div>
