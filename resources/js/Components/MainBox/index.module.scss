@@ -1,6 +1,6 @@
 .boxInfo {
   background: url(../../assets/bg.png) no-repeat;
-  background-size: contain;
+  background-size: cover;
   width: 100%;
   height: 480px;
   position: relative;
@@ -14,10 +14,20 @@
   }
 
   &::before {
-    content: url(../../assets/weather.png);
+    content: '';
+    background-image: url(../../assets/weather.png);
+    background-size: contain;
+    background-position: 50%;
+    width: 176px;
+    height: 176px;
     position: absolute;
     top: -56px;
     left: -56px;
+
+    @media (max-width: 500px) {
+      width: 126px;
+      height: 126px;
+    }
   }
 
   .city {
@@ -42,7 +52,7 @@
     }
   }
 
-  .temperatura {
+  .temperature {
     display: flex;
     justify-content: center;
     gap: 4px;
@@ -52,7 +62,7 @@
       margin-top: 30px;
     }
 
-    .numero {
+    .number {
       font-size: 88px;
       font-weight: 700;
       color: #FFF;
@@ -63,7 +73,7 @@
       }
     }
 
-    .medicao {
+    .measurement {
       font-size: 24px;
       font-weight: 700;
       color: #DAD8F7;
