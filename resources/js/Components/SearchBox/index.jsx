@@ -15,6 +15,7 @@ export default function SearchBox({ changeValue }) {
       changeValue(value)
       setInputValue('')
     }
+    setListCities([])
   },[])
 
   useEffect(() => {
