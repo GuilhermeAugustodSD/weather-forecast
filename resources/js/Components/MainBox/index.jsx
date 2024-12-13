@@ -3,10 +3,11 @@ import Pin from '@/assets/image-4.png';
 import BoxConditions from '../BoxConditions';
 import { changeToAcronym } from '@/utils/location';
 import { useState, useEffect, useCallback } from 'react';
+import { fetchDataWeather } from '@/api/weather';
 
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { fetchDataWeather } from '@/api/weather';
+import Swal from 'sweetalert2'
 
 export default function MainBox({ search }) {
   const [weatherInfo, setWeatherInfo] = useState({});
@@ -15,6 +16,16 @@ export default function MainBox({ search }) {
   const requisitionFetchData = useCallback (async (search) => {
     setLoading(true)
     const data = await fetchDataWeather(search)
+
+    if (data.error) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: data.message,
+        footer: "Try again!"
+      });
+    }
+
     setWeatherInfo(data)
     setLoading(false)
   },[])
