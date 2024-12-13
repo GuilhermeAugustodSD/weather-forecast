@@ -17,7 +17,7 @@ export default function MainBox({ search }) {
     setLoading(true)
     const data = await fetchDataWeather(search)
 
-    if (data.error) {
+    if (data && data.error) {
       return Swal.fire({
         icon: "error",
         title: "Oops...",
