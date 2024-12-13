@@ -11,7 +11,7 @@ Antes de rodar a aplicação, você precisa garantir que o ambiente esteja confi
 
 ### Variáveis de Ambiente
 
-> [!IMPORTANTE]
+> [!IMPORTANT]
 > Adicione a chave da API da **WeatherAPI** ao seu arquivo `.env`:
 
 
