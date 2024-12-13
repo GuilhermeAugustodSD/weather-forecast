@@ -1,69 +1,128 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Documentação do Projeto
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este é um projeto que utiliza **Laravel** como backend e **React** no frontend, integrado através do **Inertia.js**. A aplicação busca informações de clima utilizando a API **WeatherAPI**.
 
-## About Laravel
+## Requisitos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Antes de rodar a aplicação, você precisa garantir que o ambiente esteja configurado corretamente:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **PHP** (com a versão necessária do Laravel)
+- **Node.js** e **NPM** (para o frontend)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Variáveis de Ambiente
 
-## Learning Laravel
+Adicione a chave da API da **WeatherAPI** ao seu arquivo `.env`:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+WEATHER_API_KEY=your_weather_api_key
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+**Importante**: Substitua `your_weather_api_key` pela chave que você obteve ao se registrar no [WeatherAPI](https://www.weatherapi.com/).
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalação
 
-## Laravel Sponsors
+1. **Clone o repositório**:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   cd <diretorio_do_projeto>
+   ```
 
-### Premium Partners
+2. **Instale as dependências do backend (Laravel)**:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+   ```bash
+   composer install
+   ```
 
-## Contributing
+3. **Instale as dependências do frontend (React)**:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   No diretório raiz do projeto, onde o `package.json` está localizado, execute:
 
-## Code of Conduct
+   ```bash
+   npm install
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. **Configure o ambiente**:
 
-## Security Vulnerabilities
+   Renomeie o arquivo `.env.example` para `.env` e configure a variável `WEATHER_API_KEY`.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5. **Compile o frontend**:
 
-## License
+   ```bash
+   npm run dev
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+6. **Inicie o servidor Laravel**:
 
+   No diretório do backend, execute:
 
+   ```bash
+   php artisan serve
+   ```
+
+## Rodando os Testes Automatizados
+
+Para rodar os testes automatizados da aplicação, execute o seguinte comando:
+
+```bash
 php artisan test --filter=WeatherApiTest
+```
+
+Isso irá rodar os testes relacionados à API de clima, verificando se a comunicação com o **WeatherAPI** e os controladores estão funcionando corretamente.
+
+## Dependências
+
+### Dependências principais:
+
+- `react-icons`: Para ícones React.
+- `react-loading-skeleton`: Para exibição de skeleton loaders.
+- `sass`: Para pré-processamento de CSS com Sass.
+- `sweetalert2`: Para exibição de alertas bonitos e customizáveis.
+
+### Dependências de desenvolvimento:
+
+- `@headlessui/react`: Componente de interface sem estilos, utilizado para interações acessíveis.
+- `@inertiajs/react`: Integração entre Laravel e React usando Inertia.js.
+- `@tailwindcss/forms`: Extensão do Tailwind para estilos de formulários.
+- `@vitejs/plugin-react`: Plugin do Vite para React.
+- `autoprefixer`: Adiciona prefixos automáticos no CSS.
+- `axios`: Cliente HTTP para fazer requisições.
+- `concurrently`: Executa múltiplos comandos simultaneamente.
+- `laravel-vite-plugin`: Integração do Vite com o Laravel.
+- `postcss`: Processador de CSS.
+- `react`: Biblioteca para construção da interface do usuário.
+- `react-dom`: Para renderizar componentes React no DOM.
+- `tailwindcss`: Framework de utilitários para CSS.
+- `vite`: Bundler de código de próxima geração.
+
+## Funcionalidades
+
+### Principais funcionalidades da aplicação:
+
+- **Integração entre Backend e Frontend com Inertia.js**: A aplicação utiliza o Inertia.js para conectar o Laravel (backend) com o React (frontend).
+- **Busca de Clima**: A aplicação permite a pesquisa de informações de clima de cidades usando a **WeatherAPI**.
+- **Autocomplete de Localização**: Ao pesquisar por uma cidade, a aplicação oferece sugestões para completar automaticamente o nome da cidade.
+  
+### Melhorias que poderiam ser feitas:
+
+- **Previsão de 5 dias**: Adicionar uma funcionalidade que permite ao usuário visualizar a previsão para os próximos 5 dias.
+- **Filtro de Data**: Incluir um filtro que permita ao usuário pesquisar por clima de uma data anterior ou futura.
+
+## Como Funciona a Arquitetura
+
+- **Frontend (React)**: Utiliza o Inertia.js para fazer a comunicação com o backend Laravel e renderizar as informações do clima.
+- **Backend (Laravel)**: O Laravel é responsável por fazer as requisições para a WeatherAPI e retornar os dados para o frontend.
+
+### Rotas do Backend:
+
+- **`/weather/city/autocomplete/{search}`**: Retorna sugestões de cidades com base no que o usuário está digitando.
+- **`/weather/{search}`**: Retorna as informações do clima para a cidade fornecida.
+
+### Conexão Backend/Frontend:
+
+O backend (Laravel) e o frontend (React) são conectados utilizando o **Inertia.js**, permitindo que a aplicação funcione como uma SPA (Single Page Application), mas com controle do backend.
+
+## Considerações Finais
+
+Este projeto é uma base para começar a integrar Laravel e React utilizando Inertia.js, e busca informações do clima de forma eficiente. Embora o projeto tenha limitações e algumas melhorias sejam desejadas (como previsão de 5 dias e filtro de datas), ele oferece uma boa estrutura para expandir conforme a necessidade.
+
