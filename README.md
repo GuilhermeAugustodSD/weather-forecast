@@ -4,7 +4,6 @@ Este é um projeto que utiliza **Laravel** como backend e **React** no frontend,
 
 <img src="https://raw.githubusercontent.com/GuilhermeAugustodSD/weather-forecast/refs/heads/main/home.png" alt="Imagem do Projeto" style="width:100%;height:auto;aspect-ratio:16/9;" >
 
-
 ## 💻 Pré-requisitos
 
 Antes de rodar a aplicação, você precisa garantir que o ambiente esteja configurado corretamente:
@@ -17,7 +16,6 @@ Antes de rodar a aplicação, você precisa garantir que o ambiente esteja confi
 > [!IMPORTANT]
 > Adicione a chave da API da **WeatherAPI** ao seu arquivo `.env`:
 
-
 ```
 WEATHER_API_KEY=your_weather_api_key
 ```
@@ -29,8 +27,8 @@ WEATHER_API_KEY=your_weather_api_key
 1. **Clone o repositório**:
 
    ```bash
-   git clone <URL_DO_REPOSITORIO>
-   cd <diretorio_do_projeto>
+   git clone https://github.com/GuilhermeAugustodSD/weather-forecast
+   cd weather-forecast
    ```
 
 2. **Instale as dependências do backend (Laravel)**:
@@ -51,7 +49,7 @@ WEATHER_API_KEY=your_weather_api_key
 
    Renomeie o arquivo `.env.example` para `.env` e configure a variável `WEATHER_API_KEY`.
 
-5. **Compile o frontend**:
+5. **Rode o frontend**:
 
    ```bash
    npm run dev
@@ -64,6 +62,9 @@ WEATHER_API_KEY=your_weather_api_key
    ```bash
    php artisan serve
    ```
+
+  
+   > Este comando iniciará o servidor Laravel e fornecerá a URL onde a aplicação pode ser acessada. **É nesta URL que você visualizará o projeto funcionando**.
 
 ## Rodando os Testes Automatizados
 
@@ -79,26 +80,10 @@ Isso irá rodar os testes relacionados à API de clima, verificando se a comunic
 
 ### Dependências principais:
 
-- `react-icons`: Para ícones React.
-- `react-loading-skeleton`: Para exibição de skeleton loaders.
+- `React`: Front-End do projeto.
+- `Laravel`: Back-End do projeto.
 - `sass`: Para pré-processamento de CSS com Sass.
-- `sweetalert2`: Para exibição de alertas bonitos e customizáveis.
-
-### Dependências de desenvolvimento:
-
-- `@headlessui/react`: Componente de interface sem estilos, utilizado para interações acessíveis.
-- `@inertiajs/react`: Integração entre Laravel e React usando Inertia.js.
-- `@tailwindcss/forms`: Extensão do Tailwind para estilos de formulários.
-- `@vitejs/plugin-react`: Plugin do Vite para React.
-- `autoprefixer`: Adiciona prefixos automáticos no CSS.
-- `axios`: Cliente HTTP para fazer requisições.
-- `concurrently`: Executa múltiplos comandos simultaneamente.
-- `laravel-vite-plugin`: Integração do Vite com o Laravel.
-- `postcss`: Processador de CSS.
-- `react`: Biblioteca para construção da interface do usuário.
-- `react-dom`: Para renderizar componentes React no DOM.
-- `tailwindcss`: Framework de utilitários para CSS.
-- `vite`: Bundler de código de próxima geração.
+- `Inertia`: Integração entre Backend e Frontend.
 
 ## Funcionalidades
 
@@ -107,7 +92,7 @@ Isso irá rodar os testes relacionados à API de clima, verificando se a comunic
 - **Integração entre Backend e Frontend com Inertia.js**: A aplicação utiliza o Inertia.js para conectar o Laravel (backend) com o React (frontend).
 - **Busca de Clima**: A aplicação permite a pesquisa de informações de clima de cidades usando a **WeatherAPI**.
 - **Autocomplete de Localização**: Ao pesquisar por uma cidade, a aplicação oferece sugestões para completar automaticamente o nome da cidade.
-  
+
 ### Melhorias que poderiam ser feitas:
 
 - **Previsão de 5 dias**: Adicionar uma funcionalidade que permite ao usuário visualizar a previsão para os próximos 5 dias.
@@ -120,8 +105,8 @@ Isso irá rodar os testes relacionados à API de clima, verificando se a comunic
 
 ### Rotas do Backend:
 
-- **`/weather/city/autocomplete/{search}`**: Retorna sugestões de cidades com base no que o usuário está digitando.
-- **`/weather/{search}`**: Retorna as informações do clima para a cidade fornecida.
+- **`/api/weather/city/autocomplete/{search}`**: Retorna sugestões de cidades com base no que o usuário está digitando.
+- **`/api/weather/{search}`**: Retorna as informações do clima para a cidade fornecida.
 
 ### Conexão Backend/Frontend:
 
