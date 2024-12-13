@@ -4,7 +4,6 @@ Este é um projeto que utiliza **Laravel** como backend e **React** no frontend,
 
 <img src="https://raw.githubusercontent.com/GuilhermeAugustodSD/weather-forecast/refs/heads/main/home.png" alt="Imagem do Projeto" style="width:100%;height:auto;aspect-ratio:16/9;" >
 
-
 ## 💻 Pré-requisitos
 
 Antes de rodar a aplicação, você precisa garantir que o ambiente esteja configurado corretamente:
@@ -16,7 +15,6 @@ Antes de rodar a aplicação, você precisa garantir que o ambiente esteja confi
 
 > [!IMPORTANT]
 > Adicione a chave da API da **WeatherAPI** ao seu arquivo `.env`:
-
 
 ```
 WEATHER_API_KEY=your_weather_api_key
@@ -64,9 +62,9 @@ WEATHER_API_KEY=your_weather_api_key
    ```bash
    php artisan serve
    ```
+
   
-> [!IMPORTANT]
-> Este comando retornará a URL onde está sendo rodado o servidor, o qual é necessário para visualizar o projeto.
+   > Este comando iniciará o servidor Laravel e fornecerá a URL onde a aplicação pode ser acessada. **É nesta URL que você visualizará o projeto funcionando**.
 
 ## Rodando os Testes Automatizados
 
@@ -87,7 +85,6 @@ Isso irá rodar os testes relacionados à API de clima, verificando se a comunic
 - `sass`: Para pré-processamento de CSS com Sass.
 - `Inertia`: Integração entre Backend e Frontend.
 
-
 ## Funcionalidades
 
 ### Principais funcionalidades da aplicação:
@@ -95,7 +92,7 @@ Isso irá rodar os testes relacionados à API de clima, verificando se a comunic
 - **Integração entre Backend e Frontend com Inertia.js**: A aplicação utiliza o Inertia.js para conectar o Laravel (backend) com o React (frontend).
 - **Busca de Clima**: A aplicação permite a pesquisa de informações de clima de cidades usando a **WeatherAPI**.
 - **Autocomplete de Localização**: Ao pesquisar por uma cidade, a aplicação oferece sugestões para completar automaticamente o nome da cidade.
-  
+
 ### Melhorias que poderiam ser feitas:
 
 - **Previsão de 5 dias**: Adicionar uma funcionalidade que permite ao usuário visualizar a previsão para os próximos 5 dias.
