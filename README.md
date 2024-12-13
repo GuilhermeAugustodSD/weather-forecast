@@ -2,7 +2,8 @@
 
 Este é um projeto que utiliza **Laravel** como backend e **React** no frontend, integrado através do **Inertia.js**. A aplicação busca informações de clima utilizando a API **WeatherAPI**.
 
-<img src="https://github.com/GuilhermeAugustodSD/weather-forecast/blob/main/home.png?raw=true" alt="Exemplo imagem">
+<img src="https://raw.githubusercontent.com/GuilhermeAugustodSD/weather-forecast/refs/heads/main/home.png" alt="Imagem do Projeto" style="width:100%;height:auto;aspect-ratio:16/9;" >
+
 
 ## 💻 Pré-requisitos
 
