@@ -51,7 +51,7 @@ WEATHER_API_KEY=your_weather_api_key
 
    Renomeie o arquivo `.env.example` para `.env` e configure a variável `WEATHER_API_KEY`.
 
-5. **Compile o frontend**:
+5. **Rode o frontend**:
 
    ```bash
    npm run dev
@@ -64,6 +64,9 @@ WEATHER_API_KEY=your_weather_api_key
    ```bash
    php artisan serve
    ```
+  
+> [!IMPORTANT]
+> Este comando retornará a URL onde está sendo rodado o servidor, o qual é necessário para visualizar o projeto.
 
 ## Rodando os Testes Automatizados
 
@@ -79,26 +82,11 @@ Isso irá rodar os testes relacionados à API de clima, verificando se a comunic
 
 ### Dependências principais:
 
-- `react-icons`: Para ícones React.
-- `react-loading-skeleton`: Para exibição de skeleton loaders.
+- `React`: Front-End do projeto.
+- `Laravel`: Back-End do projeto.
 - `sass`: Para pré-processamento de CSS com Sass.
-- `sweetalert2`: Para exibição de alertas bonitos e customizáveis.
+- `Inertia`: Integração entre Backend e Frontend.
 
-### Dependências de desenvolvimento:
-
-- `@headlessui/react`: Componente de interface sem estilos, utilizado para interações acessíveis.
-- `@inertiajs/react`: Integração entre Laravel e React usando Inertia.js.
-- `@tailwindcss/forms`: Extensão do Tailwind para estilos de formulários.
-- `@vitejs/plugin-react`: Plugin do Vite para React.
-- `autoprefixer`: Adiciona prefixos automáticos no CSS.
-- `axios`: Cliente HTTP para fazer requisições.
-- `concurrently`: Executa múltiplos comandos simultaneamente.
-- `laravel-vite-plugin`: Integração do Vite com o Laravel.
-- `postcss`: Processador de CSS.
-- `react`: Biblioteca para construção da interface do usuário.
-- `react-dom`: Para renderizar componentes React no DOM.
-- `tailwindcss`: Framework de utilitários para CSS.
-- `vite`: Bundler de código de próxima geração.
 
 ## Funcionalidades
 
@@ -120,8 +108,8 @@ Isso irá rodar os testes relacionados à API de clima, verificando se a comunic
 
 ### Rotas do Backend:
 
-- **`/weather/city/autocomplete/{search}`**: Retorna sugestões de cidades com base no que o usuário está digitando.
-- **`/weather/{search}`**: Retorna as informações do clima para a cidade fornecida.
+- **`/api/weather/city/autocomplete/{search}`**: Retorna sugestões de cidades com base no que o usuário está digitando.
+- **`/api/weather/{search}`**: Retorna as informações do clima para a cidade fornecida.
 
 ### Conexão Backend/Frontend:
 
