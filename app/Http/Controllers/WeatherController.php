@@ -10,39 +10,75 @@ class WeatherController extends Controller
 {
   public function getWeather($search)
   {
-    $api_key = Config::get('services.weather_api_key');
+    try {
+      $api_key = Config::get('services.weather_api_key');
 
-    $url = "https://api.weatherapi.com/v1/forecast.json?q=$search&days=5&lang=pt&key=$api_key";
+      if (empty($api_key)) {
+        return response()->json(['error' => 'API key is missing'], 500);
+      }
 
-    $response = Http::withHeaders([
-      'Content-Type' => 'application/json',
-    ])->timeout(30)->post($url);
+      $url = "https://api.weatherapi.com/v1/forecast.json?q=$search&days=5&lang=pt&key=$api_key";
 
-    if (!$response->successful()) {
-      return response()->json(['error' => 'Erro ao consultar a API'], 404);
+      $response = Http::withHeaders([
+        'Content-Type' => 'application/json',
+      ])->timeout(30)->get($url);
+
+      if (!$response->successful()) {
+        return response()->json([
+          'error' => 'Failed to fetch weather data',
+          'status_code' => $response->status(),
+          'message' => $response->json('error.message') ?? 'Unknown error'
+        ], $response->status());
+      }
+
+      return response()->json($response->json());
+    } catch (\Illuminate\Http\Client\RequestException $e) {
+      return response()->json([
+        'error' => 'Request failed',
+        'message' => $e->getMessage()
+      ], 408);
+    } catch (\Exception $e) {
+      return response()->json([
+        'error' => 'An unexpected error occurred',
+        'message' => $e->getMessage()
+      ], 500);
     }
-
-    return $response->json();
-  }
-
-  public function getHistoryWeather(Request $request)
-  {
-    // https://api.weatherapi.com/v1/history.json?q=london&key=a1743f3a417840c192f180158241012&dt=2024-01-01
   }
 
   public function getAutoCompleteLocation($search)
   {
-    $api_key = Config::get('services.weather_api_key');
+    try {
+      $api_key = Config::get('services.weather_api_key');
 
-    $url = "https://api.weatherapi.com/v1/search.json?q=$search&key=$api_key";
-    $response = Http::withHeaders([
-      'Content-Type' => 'application/json',
-    ])->timeout(30)->get($url);
+      if (empty($api_key)) {
+        return response()->json(['error' => 'API key is missing'], 500);
+      }
 
-    if (!$response->successful()) {
-      return response()->json(['error' => 'Erro ao consultar a API'], 401);
+      $url = "https://api.weatherapi.com/v1/search.json?q=$search&key=$api_key";
+
+      $response = Http::withHeaders([
+        'Content-Type' => 'application/json',
+      ])->timeout(30)->get($url);
+
+      if (!$response->successful()) {
+        return response()->json([
+          'error' => 'Failed to fetch autocomplete locations',
+          'status_code' => $response->status(),
+          'message' => $response->json('error.message') ?? 'Unknown error'
+        ], $response->status());
+      }
+
+      return response()->json($response->json());
+    } catch (\Illuminate\Http\Client\RequestException $e) {
+      return response()->json([
+        'error' => 'Request failed',
+        'message' => $e->getMessage()
+      ], 408);
+    } catch (\Exception $e) {
+      return response()->json([
+        'error' => 'An unexpected error occurred',
+        'message' => $e->getMessage()
+      ], 500);
     }
-
-    return $response->json();
   }
 }
