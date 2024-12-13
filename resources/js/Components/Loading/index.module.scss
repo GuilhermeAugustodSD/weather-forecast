@@ -1,0 +1,30 @@
+.loading {
+  width: 54px;
+  height: 54px;
+  position: relative;
+  transform: rotate(15deg);
+  transition: all .3s ease;
+  margin: auto;
+  max-width: max-content;
+  max-width: max-content;
+  overflow: hidden;
+
+  .orange {
+    position: absolute;
+    stroke-width: 4;
+    stroke: #4d48aa;
+    stroke-dasharray: 20, 180;
+    animation: dash 1s linear infinite;
+  }
+
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: -200;
+    }
+  }
+}
+
+

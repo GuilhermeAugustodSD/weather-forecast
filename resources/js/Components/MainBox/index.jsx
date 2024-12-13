@@ -27,7 +27,10 @@ export default function MainBox({ search }) {
     }
 
     setWeatherInfo(data)
-    setLoading(false)
+
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
   },[])
 
   useEffect(() => {
@@ -41,7 +44,8 @@ export default function MainBox({ search }) {
         {loading ? (
           <Skeleton width={100} baseColor="#b995db61"/>
         ) : (
-          `${weatherInfo?.location?.name}, ${changeToAcronym(weatherInfo?.location?.region)}`
+          `${weatherInfo?.location?.name ?? '' },
+          ${changeToAcronym(weatherInfo?.location?.region) ?? ''}`
         )}
       </div>
       <div className={styles.temperature}>

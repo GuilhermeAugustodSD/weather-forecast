@@ -28,4 +28,6 @@ const regions = {
   'Tocantins': 'TO'
 };
 
-export { regions }
+const principalRegion = "Brasília"
+
+export { regions, principalRegion }
