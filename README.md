@@ -2,11 +2,11 @@
 
 Este é um projeto que utiliza **Laravel** como backend e **React** no frontend, integrado através do **Inertia.js**. A aplicação busca informações de clima utilizando a API **WeatherAPI**.
 
-## Requisitos
+## 💻 Pré-requisitos
 
 Antes de rodar a aplicação, você precisa garantir que o ambiente esteja configurado corretamente:
 
-- **PHP** (com a versão necessária do Laravel)
+- **PHP** (^8)
 - **Node.js** e **NPM** (para o frontend)
 
 ### Variáveis de Ambiente
@@ -21,7 +21,7 @@ WEATHER_API_KEY=your_weather_api_key
 
 **Importante**: Substitua `your_weather_api_key` pela chave que você obteve ao se registrar no [WeatherAPI](https://www.weatherapi.com/).
 
-## Instalação
+## 🚀 Instalando
 
 1. **Clone o repositório**:
 
