@@ -29,8 +29,8 @@ WEATHER_API_KEY=your_weather_api_key
 1. **Clone o repositório**:
 
    ```bash
-   git clone <URL_DO_REPOSITORIO>
-   cd <diretorio_do_projeto>
+   git clone https://github.com/GuilhermeAugustodSD/weather-forecast
+   cd weather-forecast
    ```
 
 2. **Instale as dependências do backend (Laravel)**:
