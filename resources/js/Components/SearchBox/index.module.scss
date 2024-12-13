@@ -57,6 +57,7 @@
     border-radius: 9px;
     padding: 19px 16px;
     overflow-y: scroll;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -82,6 +83,12 @@
 
     &::-webkit-scrollbar-corner {
       background-color: #d9d9d9;
+    }
+
+    .loading {
+      border: 2px solid #03020f;
+      border-radius: 50%;
+
     }
 
     button {
